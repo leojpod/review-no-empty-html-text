@@ -84,9 +84,9 @@ error =
     { message = "Do not use `Html.text \"\"` to represent \"Nothing\""
     , details =
         [ "Since your project is using Html.Extra please use one of the following function instead of `Html.text \"\"`"
-        , " - (`Html.Extra.nothing`)[https://package.elm-lang.org/packages/elm-community/html-extra/latest/Html-Extra#nothing]"
-        , " - (`Html.Extra.viewIf`)[https://package.elm-lang.org/packages/elm-community/html-extra/latest/Html-Extra#viewIf]"
-        , " - (`Html.Extra.viewMaybe`)[https://www.papillesetpupilles.fr/2019/09/sirop-de-fleurs-sauvages-maison.html/?fbclid=IwAR3BcddwSYAjNyspmabbMNaYyUkbVpsOv81VBYhOd85-XQqnhYYnJzuRWBU]"
-        , " - (`Html.Extra.viewIfLazy`)[https://package.elm-lang.org/packages/elm-community/html-extra/latest/Html-Extra#viewIfLazy]"
+        , " - Html.Extra.nothing"
+        , " - Html.Extra.viewIf"
+        , " - Html.Extra.viewMaybe"
+        , " - Html.Extra.viewIfLazy"
         ]
     }
