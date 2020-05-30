@@ -1,10 +1,21 @@
 module NoEmptyTextTest exposing (suite)
 
--- import Expect exposing (Expectation)
-
 import NoEmptyText as NoEmptyText
 import Review.Test
 import Test exposing (Test, describe, test)
+
+
+error : { message : String, details : List String }
+error =
+    { message = "Do not use `Html.text \"\"` to represent \"Nothing\""
+    , details =
+        [ "Since your project is using Html.Extra please use one of the following function instead of `Html.text \"\"`"
+        , " - Html.Extra.nothing"
+        , " - Html.Extra.viewIf"
+        , " - Html.Extra.viewMaybe"
+        , " - Html.Extra.viewIfLazy"
+        ]
+    }
 
 
 suite : Test
@@ -49,8 +60,8 @@ foo = Html.text ""
                     |> Review.Test.run NoEmptyText.rule
                     |> Review.Test.expectErrors
                         [ Review.Test.error
-                            { message = NoEmptyText.error.message
-                            , details = NoEmptyText.error.details
+                            { message = error.message
+                            , details = error.details
                             , under = "Html.text \"\""
                             }
                         ]
@@ -67,8 +78,8 @@ foo = text ""
                     |> Review.Test.run NoEmptyText.rule
                     |> Review.Test.expectErrors
                         [ Review.Test.error
-                            { message = NoEmptyText.error.message
-                            , details = NoEmptyText.error.details
+                            { message = error.message
+                            , details = error.details
                             , under = "text \"\""
                             }
                         ]
@@ -85,8 +96,8 @@ foo = H.text ""
                     |> Review.Test.run NoEmptyText.rule
                     |> Review.Test.expectErrors
                         [ Review.Test.error
-                            { message = NoEmptyText.error.message
-                            , details = NoEmptyText.error.details
+                            { message = error.message
+                            , details = error.details
                             , under = "H.text \"\""
                             }
                         ]
@@ -106,13 +117,13 @@ foo = Html.div [ ]
                     |> Review.Test.run NoEmptyText.rule
                     |> Review.Test.expectErrors
                         [ Review.Test.error
-                            { message = NoEmptyText.error.message
-                            , details = NoEmptyText.error.details
+                            { message = error.message
+                            , details = error.details
                             , under = "H.text \"\""
                             }
                         , Review.Test.error
-                            { message = NoEmptyText.error.message
-                            , details = NoEmptyText.error.details
+                            { message = error.message
+                            , details = error.details
                             , under = "text \"\""
                             }
                             |> Review.Test.atExactly { start = { row = 9, column = 5 }, end = { row = 9, column = 12 } }

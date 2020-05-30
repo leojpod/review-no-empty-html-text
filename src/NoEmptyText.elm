@@ -1,4 +1,4 @@
-module NoEmptyText exposing (error, rule)
+module NoEmptyText exposing (rule)
 
 {-| @doc rule
 -}
