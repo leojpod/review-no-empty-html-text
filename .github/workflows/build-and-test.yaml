@@ -5,7 +5,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  lint:
+  setup:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,5 +33,6 @@ jobs:
 
     - name: run tests
       run: |
+        npm i elm
         npx elm-test
 
