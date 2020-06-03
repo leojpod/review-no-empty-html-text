@@ -1,6 +1,9 @@
 module NoEmptyText exposing (rule)
 
-{-| @doc rule
+{-| This library add a simple [`elm-review`](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/) rule to prevent people from calling `Html.text` with an empty string as a mean to show "nothing". It works best if you are already using [`elm-community/html-extra`](https://package.elm-lang.org/packages/elm-community/html-extra/latest/)
+
+@docs rule
+
 -}
 
 import Elm.Syntax.Exposing as Exposing
@@ -16,6 +19,11 @@ type Context
     | Import { aliasing : Maybe ModuleName, exposed : Bool }
 
 
+{-| This is the rule you should add to your elm-review process.
+
+For details on how to add a rule to your setup, check [here](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/#configuration) it's quite simple!
+
+-}
 rule : Rule
 rule =
     Rule.newModuleRuleSchema "NoEmptyText" NoImport
