@@ -1,6 +1,6 @@
 {
   "type": "package",
-  "name": "leojpod/no-empty-html-text",
+  "name": "leojpod/review-no-empty-html-text",
   "summary": "elm-review rule to forbid the use of `Html.text \"\"`",
   "license": "MIT",
   "version": "0.0.1",
