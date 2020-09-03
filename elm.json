@@ -1,9 +1,9 @@
 {
     "type": "package",
     "name": "leojpod/review-no-empty-html-text",
-    "summary": "elm-review rule to forbid the use of `Html.text \"\"`",
+    "summary": "elm-review rule to favour `html-extra` and forbid `Html.text \"\"`",
     "license": "MIT",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "exposed-modules": [
         "NoEmptyText"
     ],
